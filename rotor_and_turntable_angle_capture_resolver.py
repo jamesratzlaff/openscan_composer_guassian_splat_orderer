@@ -1,5 +1,6 @@
 import math
 import numpy as np
+import typing
 
 
 class Coordinate:
@@ -308,7 +309,7 @@ class mapped_coordinate:
         return list(map(lambda i:coll[i],indexes))
     
     @staticmethod
-    def select_every_x_item_all(coll,x=1,do_flip_flop=True):
+    def select_every_x_item_all(coll:typing.List[typing.KT],x=1,do_flip_flop=True)->typing.List[typing.KT]:
         is_mapped_coordinate_coll = len(coll)>1 and isinstance(coll[0],mapped_coordinate)
         do_post_flip_flop = do_flip_flop and is_mapped_coordinate_coll
         do_preemptive_flip_flop=do_flip_flop and not is_mapped_coordinate_coll
